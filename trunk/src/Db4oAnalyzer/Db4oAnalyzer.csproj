@@ -1,0 +1,123 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{3AE7C916-C223-4A5D-80F7-0F435281CB5E}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Db4oAnalyzer</RootNamespace>
+    <AssemblyName>Db4oAnalyzer</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+  <ItemGroup>
+    <Reference Include="Db4objects.Db4o">
+      <HintPath>..\lib\Db4objects.Db4o.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory">
+      <HintPath>..\lib\ICSharpCode.NRefactory.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpDevelop">
+      <HintPath>..\lib\ICSharpCode.SharpDevelop.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpDevelop.Dom">
+      <HintPath>..\lib\ICSharpCode.SharpDevelop.Dom.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="ICSharpCode.TextEditor">
+      <HintPath>..\lib\ICSharpCode.TextEditor.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\lib\log4net.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>..\lib\Mono.Cecil.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Core\Azzembly.cs" />
+    <Compile Include="Core\Cfg\CfgHelper.cs" />
+    <Compile Include="Core\Cfg\ReferenceElement.cs" />
+    <None Include="app.config" />
+    <None Include="previous_session_code">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Compile Include="Core\Cfg\ReferenceCollection.cs" />
+    <Compile Include="Core\Cfg\Db4oAnalyzerSection.cs" />
+    <Compile Include="Core\CodeCompletion\CodeCompletionKeyHandler.cs" />
+    <Compile Include="Core\CodeCompletion\CodeCompletionProvider.cs" />
+    <Compile Include="Core\CodeCompletion\HostCallbackImplementation.cs" />
+    <Compile Include="Core\CompilerHelper.cs" />
+    <Compile Include="Core\Db4oHelper.cs" />
+    <Compile Include="Core\IOHelper.cs" />
+    <Compile Include="Core\ObjectTree.cs" />
+    <Compile Include="Core\Parser\AssemblyParser.cs" />
+    <Compile Include="Core\Parser\Clazz.cs" />
+    <Compile Include="Core\Parser\ClazzCollection.cs" />
+    <Compile Include="Core\Parser\Field.cs" />
+    <Compile Include="Core\ProgramBase.cs" />
+    <Compile Include="Core\References.cs" />
+    <Compile Include="Core\TextWriter.cs" />
+    <Compile Include="Core\TreeFactory.cs" />
+    <Compile Include="frmReferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReferences.Designer.cs">
+      <DependentUpon>frmReferences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReferences.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmReferences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Db4oAnalyzer.Test.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Readme.txt" />
+  </ItemGroup>
+</Project>
