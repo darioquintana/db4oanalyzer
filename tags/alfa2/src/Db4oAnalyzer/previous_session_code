@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using Db4objects.Db4o;
+using Db4objects.Db4o.Query;
+using Db4oAnalyzer;
+using Db4oAnalyzer.Test.Entities; //Classes for Test
+
+public class Program : ProgramBase
+{	
+	public static void Main()
+	{	
+	  /*	
+		Customer c1 = new Customer();
+		
+		c1.Name = "John";
+		c1.SecondName= "Foos";
+		c1.Id = Guid.NewGuid();
+		c1.Addresses.Add(new Address("Av. 25 of May 553"));
+		
+		Customer c2 = new Customer();
+		
+		c2.Name = "Mario";
+		c2.SecondName= "Larrea";
+		c2.Id = Guid.NewGuid();
+		c2.Addresses.Add(new Address("Av. 1era. Junta 343"));
+		
+		db.Set(c1);
+		db.Set(c2);
+		
+		draw(db.Query(typeof(Customer)));
+		*/
+		
+	}
+}
